@@ -1,0 +1,80 @@
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{\centerline{CS 215 Project \newline A CS 215 Report by Group 01}}
+\begin{columns}[T]
+\begin{column}{\textwidth}
+\begin{block}{Working}
+1.Introduction \newline \pause 
+2.Working \newline \pause
+3.Conclusion
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{\centerline{Introduction}}
+This report is created as a part of our CS 215 project to easily convey the internal working of the project.\newline
+In the coming slides, you will find a detailed description of the project.
+Happy Reading!
+\end{frame}
+
+\begin{frame}
+\frametitle{\centerline{Working}}
+\begin{enumerate}
+\item Defined classes 'Attribute', 'Country' and 'Sentence' along with their data members and data functions to help organise and simplify the code. \pause
+\item Defined three dictionaries (which are basically maps): \pause
+\setbeamertemplate{enumerate items}[default]
+\begin{enumerate}
+\item cc : A dictionary that maps a country code to the corresponding index number, in the order in which they are received the first time. \pause
+\item cn : A dictionary that maps a country name to the corresponding index number, in the order in which they are received the first time. \pause
+\item p  : A dictionary that maps an attribute to the corresponding index number, in the order in which they are received the first time. \pause
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{\centerline{Working}}
+\begin{enumerate}
+\item On running the code, main function is called by default, which: \pause
+\setbeamertemplate{enumerate items}[default]
+\begin{enumerate}
+\item Reads from "countries\_idmap.txt" and populates 'country\_array' \pause
+\item Reads from "selected\_indicators" and populates "attributes\_array\_main" \pause
+\item Runs a 'for' loop that adds this attribute-list to each of the countries already listed above. \pause
+\item Reads from "kb-facts-train\_SI.csv" and fills up the attribute-list for each country using this data. \pause
+\item Calls regression() function for each of the countries, which: \pause
+\setbeamertemplate{enumerate items}[default]
+\begin{enumerate}
+\item Finds the sample mean and variance for each attribute of the country \pause
+\item Uses linear regression and finds the regression coefficients \pause
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{\centerline{Working}}
+\begin{enumerate}
+\item On running the code, main function is called by default, which: \pause
+\setbeamertemplate{enumerate items}[default]
+\begin{enumerate}
+\item Reads "sentences.tsv" and converts each row of input to a corresponding Sentence class object and calls the function doAll() on that Sentence object. \pause
+\setbeamertemplate{enumerate items}[default]
+\begin{enumerate}
+\item The doAll() function uses the country-name passed with the Sentence object and goes on removing the last letter until it finds a match with one of the countries in the country\_array list (or the country-name becomes empty) \pause
+\item For calculation of score, the function uses the normlised exponential formula $$ score = 100 * \exp{-(x-u)}^{2} / (2(s^{2}) ) / (\sqrt(2*\pi)*s) ,$$ s being the standard deviation of the sample values of attribute in consideration.
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{\centerline{Conclusions}}
+This is our project as a part of the CS 215 course. Hope you enjoyed going through the report as much as we enjoyed making it.
+Any other reviews and/or suggetions are most welcome. Looking forward to hearing from you.
+Thank You :)
+\end{frame}
